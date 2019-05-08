@@ -106,7 +106,6 @@ plt.show()
 
 
 # Excercise 1
-
 def factorial(n):
     # counter
     num = 1
@@ -119,8 +118,77 @@ def factorial(n):
     # return value of num
     return num
 
-
+# call function
 factorial(7)
+
+# Excercise 2
+from numpy.random import uniform
+
+def binomial_rv(n, p):
+    count = 0
+    for i in range(n):
+        U = uniform()
+        if U < p:
+            count = count + 1    # Or count += 1
+    return count
+
+binomial_rv(10, 0.5)
+
+# Excercise 3
+n = 100000
+
+count = 0
+for i in range(n):
+    u, v = np.random.uniform(), np.random.uniform()
+    d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+    if d < 0.5:
+        count += 1
+
+area_estimate = count / n
+
+print(area_estimate * 4)  # dividing by radius**2
+
+# Excercise 4
+from numpy.random import uniform
+
+payoff = 0
+count = 0
+
+for i in range(10):
+    U = uniform()
+    count = count + 1 if U < 0.5 else 0
+    if count == 3:
+        payoff = 1
+
+print(payoff)
+
+# Excercise 5
+α = 0.9
+ts_length = 200
+current_x = 0
+
+x_values = []
+for i in range(ts_length + 1):
+    x_values.append(current_x)
+    current_x = α * current_x + np.random.randn()
+plt.plot(x_values)
+plt.show()
+
+# Excercise 6
+αs = [0.0, 0.8, 0.98]
+ts_length = 200
+
+for α in αs:
+    x_values = []
+    current_x = 0
+    for i in range(ts_length):
+        x_values.append(current_x)
+        current_x = α * current_x + np.random.randn()
+    plt.plot(x_values, label=f'α = {α}')
+plt.legend()
+plt.show()
+
+
 
 
 
