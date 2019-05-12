@@ -54,8 +54,7 @@ quad(lambda x: x**3, 0, 2)
 x_vals = [2,3,4,5,6,7,8]
 y_vals = [20,31,14,25,26,57,78]
 
-for x_val, y_val in zip(x_vals, y_vals):
-    print(x_val * y_val)
+sum([x_val * y_val for x_val, y_val in zip(x_vals, y_vals)])
 
 # Excercise 1 Part 2:
 x = 0
@@ -67,10 +66,7 @@ print(x)
 # Excercise 1 Part 3:
 x = 0
 pairs = ((2, 5), (4, 2), (9, 8), (12, 10))
-for pair in pairs:
-    if pair[0] % 2 == 0 and pair [1] % 2 == 0:
-        x += 1
-print(x)
+sum([x % 2 == 0 and y % 2 == 0 for x,y in pairs])
 
 # Excercise 2:
 
@@ -79,7 +75,19 @@ def capitalize(x):
     upper = sum(1 for i in x if i.isupper())
     print(upper)
 
-capitalize("HELlo")
+capitalize("HELlo MY LOVE")
 
+# Excercise 4:
+def f(seq_a, seq_b):
+    is_subset = True
+    for a in seq_a:
+        if a not in seq_b:
+            is_subset = False
+    return is_subset
+
+# == test == #
+
+print(f([1, 2], [1, 2, 3]))
+print(f([1, 2, 3], [1, 2]))
 
 
