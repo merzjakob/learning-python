@@ -71,3 +71,15 @@ for pair in pairs:
     if pair[0] % 2 == 0 and pair [1] % 2 == 0:
         x += 1
 print(x)
+
+# Excercise 2:
+
+# Excercise 3:
+def capitalize(x):
+    upper = sum(1 for i in x if i.isupper())
+    print(upper)
+
+capitalize("HELlo")
+
+
+
